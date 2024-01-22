@@ -24,7 +24,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="h-screen bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-black to-black">
+      <body className="h-screen text-white bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-black to-black">
         <Outlet />
         <ScrollRestoration />
         <Scripts />
