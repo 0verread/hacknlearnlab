@@ -1,1 +1,0 @@
-module.exports = require("@monoture/config/tailwind/tailwind.config.ts");
