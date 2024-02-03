@@ -9,3 +9,24 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Services {
+  id String @id @default(dbgenerated("nanoid('srv_')"))
+  name String
+  ptoken String @unique
+  user_id String
+  created_at DateTime @default(now())
+  last_updated_at DateTime @default(now()) @updatedAt
+  ptoken_id Ptokens[]
+}
+
+model Ptokens {
+  id String @id @default(dbgenerated("nanoid('ptn_')"))
+  service_id String 
+  value String @unique
+  is_active Boolean @default(true)
+  created_at DateTime @default(now())
+  last_updated_at DateTime @default(now()) @updatedAt
+  service Services @relation(fields: [service_id], references: [id])
+}
+
